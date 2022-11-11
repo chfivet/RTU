@@ -1,0 +1,16 @@
+{% extends "common/layout.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="page-header">
+    <h2>{% trans 'Logout' %}</h2>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <p>{% trans 'You are succesfully logout.' %}</p>
+        <p><a href={% url 'login' %}>{% trans 'Click to reconnect' %}</a></p>
+    </div>
+</div>
+{% endblock %}
