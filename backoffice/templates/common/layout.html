@@ -11,7 +11,17 @@
     <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
 </head>
 <body>
-{% block content %}
+{% block header_content %}
+    {% include 'common/header.html' %}
+{% endblock %}
+
+<div class="panel panel-default" style="margin-top: 100px">
+    {% block content %}
+    {% endblock %}
+</div>
+
+{% block footer_content %}
+    {% include 'common/footer.html' %}
 {% endblock %}
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

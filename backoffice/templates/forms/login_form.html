@@ -1,18 +1,26 @@
 {% load bootstrap5 i18n %}
 
-<h1>{% trans 'Login' %}</h1>
-{% if form.errors %}
-<p class="text-danger">
-    {% trans "Your username and password didn't match. Please try again." %}
-</p>
-{% endif %}
-<br>
-<form action="{% url 'login' %}" method="post" class="form">
-  {% csrf_token %}
-  {% bootstrap_form form %}
-  {% buttons %}
-    <button type="submit" class="btn btn-primary">
-      Submit
-    </button>
-  {% endbuttons %}
-</form>
+<div class="container">
+    <form action="{% url 'login' %}" method="post" class="form">
+        {% csrf_token %}
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                {% bootstrap_field form.username show_label=False %}
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                {% bootstrap_field form.password show_label=False %}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">
+            {% trans "Submit" %}
+        </button>
+    </form>
+    <br>
+    {% if form.errors %}
+        <p class="text-danger">
+            {% trans "Your username and password didn't match. Please try again." %}
+        </p>
+    {% endif %}
+</div>
